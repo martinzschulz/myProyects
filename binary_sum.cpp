@@ -1,6 +1,6 @@
 #include <iostream>
+using namespace std; 
 
-using namespace std;
 void bin_sum(int int_a, int int_b, int length, int c[]);
 int bin_to_dec(const int c[], int length);
 int* int_to_arr(int a, int length);
@@ -16,7 +16,6 @@ int main(){
     int c[length + 1]; //create array to save the sum 
 
     bin_sum(a, b, length, c);
-
 //print out sum of two binary digits
     for(int i = 0; i <= length; ++i){
         cout << c[i];
@@ -31,13 +30,11 @@ int main(){
 int size(int a, int b){
     int size_a = 0; 
     int size_b = 0;
-
 //count the digits by dividing multilpe times by 10
     while (a > 0) {
         a /= 10;
         ++size_a;
     }
-
   while (b > 0) {
         b /= 10;
         ++size_b;
@@ -55,8 +52,6 @@ int power_of_size(int size){
 }
 
 int* int_to_arr(int a, int size){
-
-
     int* arr = new int[size]();
     int count = size - 1;
 
@@ -64,7 +59,6 @@ int* int_to_arr(int a, int size){
         if( a % i == 0){
             arr[count] = 0; 
         }
-
         else{
             arr[count] = 1;
             a = a - (i/10);
@@ -80,7 +74,6 @@ void bin_sum(int int_a, int int_b, int length, int c[]){
     int* b = int_to_arr(int_b, length);
     int rest = 0;
   
-
     for(int i = length - 1; i >= 0; --i){
         if(a[i] + b[i] + rest < 2){ //if sum is 1 or 0 
             c[i + 1] = a[i] + b[i] + rest; //save sum
@@ -89,7 +82,6 @@ void bin_sum(int int_a, int int_b, int length, int c[]){
         else if(a[i] + b[i] + rest == 3){
             c[i + 1] = 1;
             rest = 1;
-
         }
         else{
             c[i + 1] = 0; 
@@ -105,7 +97,6 @@ int bin_to_dec(const int c[], int size){
     int power_two = 1;
 
     for(int i = size; i >= 0 ; --i){
-        
         sum = (c[i] * power_two) + sum;
         power_two *= 2;
     }
